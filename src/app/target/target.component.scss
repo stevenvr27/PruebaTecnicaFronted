@@ -1,0 +1,63 @@
+#pokeboxcontainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow:visible;
+    z-index: 0;
+    max-height: 800px;
+    &.selected::before{
+        
+        content: "";
+        position: absolute;
+        height: 120%;
+        width: calc(100% + 8px );
+        top: -4px;
+        left: 0px;
+        background-color: #da4443;
+        z-index: -2;
+        border-radius: 25px;
+    }
+  
+}
+ 
+#pokebox {
+    height: 60px;
+    border: solid black;
+    border-radius: 40px;
+    background-color: white;
+    padding: 0 20px;
+}
+
+#Target {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    margin-left: 25px 5px 5px 25px ;
+    background-color: #c29239ad;
+    width: 100%;
+    font-size: large; 
+    border-radius: 40px;
+    border: solid black 2px;
+    outline: solid 5px #ffffff;
+    cursor: pointer;
+    gap: 1rem ;
+    
+}
+#targetController{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+
+}
+ #Picture{
+    max-height: 60px;
+    padding-left: 20px;
+    border-radius: 50px;
+     
+ }
+
+#Target span {
+    margin-left: 40px; /* Ajusta este valor según sea necesario */
+}
