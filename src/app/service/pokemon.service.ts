@@ -9,6 +9,8 @@ export class PokemonService {
   constructor(private httpClient: HttpClient) {}
 
   getpokemons() {
-    return this.httpClient.get<any[]>('http://localhost:3000/api/pokemon');
+    return this.httpClient.get<any[]>(
+      'http://localhost:3000/api/pokemon?limit=50&offset=0'
+    );
   }
 }
