@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'], // Note: Corrected styleUrl to styleUrls
+  styleUrls: ['./app.component.scss'],  
   imports: [
     RouterOutlet,
     PokemonPictureComponent,
