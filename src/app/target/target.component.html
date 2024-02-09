@@ -1,11 +1,11 @@
-<div id="pokeboxcontainer"  >
+<div id="pokeboxcontainer">
     <img src="./../assets/img/Pokeball_icon-icons.com_67533.svg" alt="" id="pokebox">
-    <!-- this is the div of target  -->
-    <div id="Target"> 
-        <!-- img pokemons -->
-        <img src="./../assets/img/chamandeer.jpg" alt="" id="Picture">
-        <!-- then we have the name and the id one by one -->
-        <span>ID</span>
-        <span>Name</span>
+    <!-- Iterate over all the pokemons -->
+    <div *ngFor="let pokemon of pokemons" id="Target"> 
+        <!-- Display Pokemon image -->
+        <img [src]="'./../assets/img/' + pokemon.url" alt="Pokemon Image" id="Picture">
+        <!-- Display Pokemon ID and Name -->
+        <span id="id">{{ pokemon.id }}</span>
+        <span id="name">{{ pokemon.name }}</span>
     </div>
 </div>

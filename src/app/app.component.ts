@@ -31,8 +31,8 @@ export class AppComponent implements OnInit {
 
   loadPokemons() {
     this.pokemonService.getpokemons().subscribe({
-      next: (pokemons: any) => {
-        console.log('Pokemons:', pokemons);
+      next: (pokemon: any) => {
+         
       },
       error: (error) => {
         console.error('Error fetching pokemons:', error);
