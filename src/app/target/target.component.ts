@@ -31,7 +31,7 @@ export class TargetComponent implements OnInit {
           ))
         );
         this.pokemons = uniquePokemons;
-        console.log(this.pokemons);
+       
       },
       error: (error: any) => {
         console.error('Error fetching pokemons:', error);

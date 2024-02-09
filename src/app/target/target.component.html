@@ -3,7 +3,7 @@
     <!-- Iterate over all the pokemons -->
     <div *ngFor="let pokemon of pokemons" id="Target"> 
         <!-- Display Pokemon image -->
-         
+        <img id="images" *ngIf="pokemon.sprites && pokemon.sprites.front_default" [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}">
     <span>No. {{pokemon.id}}</span>
     <span *ngIf="pokemon">{{pokemon.name | titlecase}}</span>
     </div>
