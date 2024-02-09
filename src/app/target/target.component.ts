@@ -1,41 +1,23 @@
-import { CommonModule, NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { PokemonService } from './../service/pokemon.service';
- 
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-target',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './target.component.html',
-  styleUrl: './target.component.scss'
-  
+  styleUrl: './target.component.scss',
 })
 export class TargetComponent implements OnInit {
   title = 'pokedex';
-  pokemons: any[] = [];
+  @Input() pokemon: any;
+  @Output() pokemonClicked = new EventEmitter<any>();
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.loadPokemons();
-  }
+  ngOnInit() {}
 
-  loadPokemons() {
-    this.pokemonService.getpokemons().subscribe({
-      next: (response: any) => {
-        // Filtrar los Pokémon para eliminar duplicados
-        const uniquePokemons = response.pokemon.filter((pokemon: any, index: any, self: any[]) =>
-          index === self.findIndex((p: any) => (
-            p.id === pokemon.id && p.name === pokemon.name
-          ))
-        );
-        this.pokemons = uniquePokemons;
-       
-      },
-      error: (error: any) => {
-        console.error('Error fetching pokemons:', error);
-      }
-    });
+  getPokemonClicked(pokemon: any) {
+    this.pokemonClicked.emit(pokemon);
   }
 }

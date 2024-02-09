@@ -1,19 +1,22 @@
 <header>
   <!-- first we made structure to see clearly the pages datas-->
-  <div id="titleContainer">  
-      <img src="./../assets/img/Pokeball_icon-icons.com_67533.svg" alt="">
-      <h1>Pokédex</h1> 
-      <img src="./../assets/img/Pokeball_icon-icons.com_67533.svg" alt="">
+  <div id="titleContainer">
+    <img src="./../assets/img/Pokeball_icon-icons.com_67533.svg" alt="" />
+    <h1>Pokédex</h1>
+    <img src="./../assets/img/Pokeball_icon-icons.com_67533.svg" alt="" />
   </div>
 </header>
 <!--then we have the  picture and the target controlls-->
 
-<main id="container"> 
-  <app-pokemon-picture></app-pokemon-picture>
+<main id="container">
+  <app-pokemon-picture [pokemon]="currentPokemon"></app-pokemon-picture>
   <div id="targetController">
-      <app-target></app-target>
-      
-  </div>  
+    <app-target
+      *ngFor="let pokemon of pokemons"
+      [pokemon]="pokemon"
+      (pokemonClicked)="onPokemonClicked($event)"
+    ></app-target>
+  </div>
 </main>
 <footer>
   <p>Derechos Reservados &copy; 2024</p>

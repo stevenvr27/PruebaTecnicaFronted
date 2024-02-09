@@ -1,14 +1,15 @@
 <div id="pokeboxcontainer">
-    <!-- Iterate over all the pokemons -->
-    <div *ngFor="let pokemon of pokemons" id="Target">
-      <img
-        src="./../assets/img/Pokeball_icon-icons.com_67533.svg"
-        alt=""
-        id="pokebox"
-      />
-      <!-- Display Pokemon image -->
-      <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
-      <span>No. {{ pokemon.id }}</span>
-      <span *ngIf="pokemon">{{ pokemon.name | titlecase }}</span>
-    </div>
-  </div>
+  <!-- Iterate over all the pokemons -->
+  <div id="Target" (click)="getPokemonClicked(pokemon)">
+    <img
+      src="./../assets/img/Pokeball_icon-icons.com_67533.svg"
+      alt=""
+      id="pokebox"
+    />
+    <!-- Display Pokemon image -->
+    <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+    <span>No. {{ pokemon.id }}</span>
+    <span *ngIf="pokemon">{{ pokemon.name | titlecase }}</span>
+      
+  </div>
+</div>

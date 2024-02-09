@@ -22,6 +22,8 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit {
   // Ensure you implement OnInit
   title = 'pokedex';
+  pokemons: any[] = [];
+  currentPokemon!: any;
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -32,11 +34,17 @@ export class AppComponent implements OnInit {
   loadPokemons() {
     this.pokemonService.getpokemons().subscribe({
       next: (pokemon: any) => {
-         
+        console.log('Pokemons:', pokemon);
+        this.pokemons = pokemon.pokemon;
+        this.currentPokemon = this.pokemons[0];
       },
       error: (error) => {
         console.error('Error fetching pokemons:', error);
       },
-    });
-  }
+    });
+  }
+
+  onPokemonClicked(pokemon: any) {
+    this.currentPokemon = pokemon;
+  }
 }
