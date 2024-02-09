@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit{
  ngOnInit(): void {
   this.pokemonService.getpokemons().subscribe({
     next: (pokemons) => {
-      console.log(pokemons);
+       
     },
     error: (error) => {
       console.log(error);
